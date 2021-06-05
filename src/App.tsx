@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from "@ionic/react";
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { settings, home, beer, search, person } from "ionicons/icons";
+import { settings, home, beer, search, person, informationCircle } from "ionicons/icons";
 import Tab1 from "./pages/Home";
 import Tab2 from "./pages/About";
 import Tab3 from "./pages/Search";
@@ -30,6 +30,11 @@ import Settings from "./pages/Settings";
 const App: React.FC = () => {
   return (
     <IonApp>
+      {/* <IonHeader>
+        <IonToolbar>
+          <IonTitle>Global header</IonTitle>
+        </IonToolbar>
+      </IonHeader> */}
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
@@ -57,10 +62,6 @@ const App: React.FC = () => {
               <IonIcon icon={home} />
               {/* <IonLabel>Tab 1</IonLabel> */}
             </IonTabButton>
-            <IonTabButton tab="tab2" href="/tab2">
-              <IonIcon icon={beer} />
-              {/* <IonLabel>Tab 2</IonLabel> */}
-            </IonTabButton>
             <IonTabButton tab="tab3" href="/tab3">
               <IonIcon icon={search} />
               {/* <IonLabel>Search</IonLabel> */}
@@ -68,6 +69,10 @@ const App: React.FC = () => {
             <IonTabButton tab="tab4" href="/tab4">
               <IonIcon icon={person} />
               {/* <IonLabel>Bartender</IonLabel> */}
+            </IonTabButton>
+            <IonTabButton tab="tab2" href="/tab2">
+              <IonIcon icon={informationCircle} />
+              {/* <IonLabel>Tab 2</IonLabel> */}
             </IonTabButton>
             <IonTabButton tab="tab5" href="/tab5">
               <IonIcon icon={settings} />

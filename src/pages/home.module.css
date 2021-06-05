@@ -1,5 +1,5 @@
 .pageContainer {
-  height: 10%;
+  height: 100%;
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -9,7 +9,9 @@
 .buttonContainer {
   margin-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .mainText {
@@ -25,8 +27,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 600px;
 }
 
-ion-content {
+/* ion-content {
   --background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cocktailBackground.jpg") no-repeat center center / cover;
-}
+} */

@@ -1,22 +1,23 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText } from "@ionic/react";
+import * as theme from "../theme";
 
-const Tab2: React.FC = () => {
+const About: React.FC = () => {
+  console.log({ theme });
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
+          <IonTitle>About</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent className="ion-padding ion-text-center" fullscreen>
+        <IonText style={theme.FONTS.body1}>
+          This is a web app made by me for drink lovers. You can use it to search for your desired drink and learn about it. You can even try making it! If you
+          have any suggestions let me know! Thanks!
+        </IonText>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Tab2;
+export default About;

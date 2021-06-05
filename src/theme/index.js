@@ -20,16 +20,16 @@ export const SIZES = {
 };
 
 export const FONTS = {
-  largeTitle: { fontFamily: "Roboto-regular", fontSize: SIZES.largeTitle },
-  h1: { fontFamily: "Roboto-Black", fontSize: SIZES.h1 },
-  h2: { fontFamily: "Roboto-Bold", fontSize: SIZES.h2 },
-  h3: { fontFamily: "Roboto-Bold", fontSize: SIZES.h3 },
-  h4: { fontFamily: "Roboto-Bold", fontSize: SIZES.h4 },
-  body1: { fontFamily: "Roboto-Regular", fontSize: SIZES.body1 },
-  body2: { fontFamily: "Roboto-Regular", fontSize: SIZES.body2 },
-  body3: { fontFamily: "Roboto-Regular", fontSize: SIZES.body3 },
-  body4: { fontFamily: "Roboto-Regular", fontSize: SIZES.body4 },
-  body5: { fontFamily: "Roboto-Regular", fontSize: SIZES.body5 },
+  largeTitle: { fontSize: SIZES.largeTitle },
+  h1: { fontSize: SIZES.h1 },
+  h2: { fontSize: SIZES.h2 },
+  h3: { fontSize: SIZES.h3 },
+  h4: { fontSize: SIZES.h4 },
+  body1: { fontSize: SIZES.body1 },
+  body2: { fontSize: SIZES.body2 },
+  body3: { fontSize: SIZES.body3 },
+  body4: { fontSize: SIZES.body4 },
+  body5: { fontSize: SIZES.body5 },
 };
 
 const appTheme = { SIZES, FONTS };
