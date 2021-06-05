@@ -6,17 +6,17 @@ const Tab1: React.FC = () => {
   console.log({ styles });
   return (
     <IonPage>
-      <IonHeader>
+      {/* <IonHeader>
         <IonToolbar>
           <IonTitle>Home</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        {/* <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
         <div className={styles.pageContainer}>
           <div className={styles.main}>
             <IonText className={styles.mainText}>Welcome to your Next Drink App!</IonText>
