@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText } from "@ionic/react";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText, IonBackButton, IonButtons } from "@ionic/react";
 import * as theme from "../theme";
 
 const About: React.FC = () => {
@@ -7,6 +7,10 @@ const About: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+
           <IonTitle>About</IonTitle>
         </IonToolbar>
       </IonHeader>

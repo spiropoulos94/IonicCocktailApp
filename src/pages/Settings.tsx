@@ -16,7 +16,7 @@ const Settings: React.FC = () => {
       <IonContent fullscreen>
         <IonList>
           <DarkModeSwitch name="Settings page" />
-          <IonItem onClick={() => history.push("/tab2")}>
+          <IonItem onClick={() => history.push("/about")}>
             <IonIcon slot="start" icon={informationCircle} />
             <IonLabel>About</IonLabel>
           </IonItem>
