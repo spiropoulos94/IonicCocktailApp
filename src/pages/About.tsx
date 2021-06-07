@@ -11,10 +11,20 @@ const About: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding ion-text-center" fullscreen>
-        <IonText style={theme.FONTS.body1}>
+        <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "center" }}>
+          <IonText style={theme.FONTS.body1}>
+            This is a web app made by{" "}
+            <a href="https://www.linkedin.com/in/nikos-spiropoulos-813167181/" target="_blank">
+              a cocktail enthusiast
+            </a>{" "}
+            for drink lovers. You can use it to search for your desired drink and learn about it. You can even try making it! If you have any suggestions let me
+            know! Thanks!
+          </IonText>
+        </div>
+        {/* <IonText style={theme.FONTS.body1}>
           This is a web app made by me for drink lovers. You can use it to search for your desired drink and learn about it. You can even try making it! If you
           have any suggestions let me know! Thanks!
-        </IonText>
+        </IonText> */}
       </IonContent>
     </IonPage>
   );

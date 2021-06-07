@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { settings, home, beer, search, person, informationCircle } from "ionicons/icons";
+import { settings, home, search, person, informationCircle } from "ionicons/icons";
 import Tab1 from "./pages/Home";
 import Tab2 from "./pages/About";
 import Tab3 from "./pages/Search";

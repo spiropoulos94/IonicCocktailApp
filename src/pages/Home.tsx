@@ -11,7 +11,7 @@ const Tab1: React.FC = () => {
           <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader> */}
-      <IonContent color="tertiary" fullscreen>
+      <IonContent fullscreen>
         <div className={styles.pageContainer}>
           <div className={styles.main}>
             <IonText className={styles.mainText}>Welcome to your Next Drink App!</IonText>

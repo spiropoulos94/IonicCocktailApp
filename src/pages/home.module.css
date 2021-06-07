@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cocktailBackground.jpg") no-repeat center center / cover;
 }
 
 .buttonContainer {
@@ -30,6 +31,7 @@
   max-width: 600px;
 }
 
+/* sets global background for ion content */
 /* ion-content {
   --background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cocktailBackground.jpg") no-repeat center center / cover;
 } */
