@@ -2,9 +2,9 @@ import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { settings, home, search, person, informationCircle } from "ionicons/icons";
-import Tab1 from "./pages/Home";
-import Tab2 from "./pages/About";
-import Tab3 from "./pages/Search";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Search from "./pages/Search";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -38,43 +38,43 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/tab1">
-              <Tab1 />
+            <Route exact path="/Home">
+              <Home />
             </Route>
-            <Route exact path="/tab2">
-              <Tab2 />
+            <Route exact path="/about">
+              <About />
             </Route>
-            <Route path="/tab3">
-              <Tab3 />
+            <Route path="/Search">
+              <Search />
             </Route>
-            <Route path="/tab4">
+            <Route path="/ask-bartender">
               <AskBartender />
             </Route>
-            <Route path="/tab5">
+            <Route path="/settings">
               <Settings />
             </Route>
             <Route exact path="/">
-              <Redirect to="/tab1" />
+              <Redirect to="/Home" />
             </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
-            <IonTabButton tab="tab1" href="/tab1">
+            <IonTabButton tab="Home" href="/Home">
               <IonIcon icon={home} />
               {/* <IonLabel>Tab 1</IonLabel> */}
             </IonTabButton>
-            <IonTabButton tab="tab3" href="/tab3">
+            <IonTabButton tab="Search" href="/Search">
               <IonIcon icon={search} />
               {/* <IonLabel>Search</IonLabel> */}
             </IonTabButton>
-            <IonTabButton tab="tab4" href="/tab4">
+            <IonTabButton tab="ask-bartender" href="/ask-bartender">
               <IonIcon icon={person} />
               {/* <IonLabel>Bartender</IonLabel> */}
             </IonTabButton>
-            <IonTabButton tab="tab2" href="/tab2">
+            <IonTabButton tab="about" href="/about">
               <IonIcon icon={informationCircle} />
               {/* <IonLabel>Tab 2</IonLabel> */}
             </IonTabButton>
-            <IonTabButton tab="tab5" href="/tab5">
+            <IonTabButton tab="settings" href="/settings">
               <IonIcon icon={settings} />
               {/* <IonLabel>Bartender</IonLabel> */}
             </IonTabButton>
