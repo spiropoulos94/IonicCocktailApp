@@ -22,9 +22,15 @@ import * as theme from "../theme";
 
 const Tab3: React.FC = () => {
   const [searchText, setSearchText] = useState("");
-  const [present] = useIonAlert();
+  const [shownMessage, setShownMessage] = useState("");
 
   console.log({ theme });
+
+  const handleKeyPress = (e: any) => {
+    if (e && e.key == "Enter") {
+      setShownMessage(searchText);
+    }
+  };
 
   return (
     <IonPage>
@@ -42,16 +48,17 @@ const Tab3: React.FC = () => {
           }}
         >
           <IonSearchbar
+            enterkeyhint="search"
+            type="search"
             color="secondary"
             value={searchText}
+            onKeyPress={(e: any) => handleKeyPress(e)}
             placeholder={"Search your cocktail"}
             onIonChange={(e) => setSearchText(e.detail.value!)}
           ></IonSearchbar>
-
-          {/* <IonButton slot="end">Shake it!</IonButton> */}
         </div>
 
-        <IonToolbar>Search Text: {searchText ?? "(none)"}</IonToolbar>
+        <IonToolbar>Search Text: {shownMessage ?? "(none)"}</IonToolbar>
       </IonContent>
     </IonPage>
   );
