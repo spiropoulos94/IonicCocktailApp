@@ -24,6 +24,8 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+
+// Imports
 import AskBartender from "./pages/AskBartender";
 import Settings from "./pages/Settings";
 
@@ -57,12 +59,12 @@ const App: React.FC = () => {
               <Redirect to="/Home" />
             </Route>
           </IonRouterOutlet>
-          <IonTabBar slot="bottom">
-            <IonTabButton tab="Home" href="/Home">
+          <IonTabBar color="secondary" slot="bottom">
+            <IonTabButton tab="Home" href="/home">
               <IonIcon icon={home} />
               {/* <IonLabel>Tab 1</IonLabel> */}
             </IonTabButton>
-            <IonTabButton tab="Search" href="/Search">
+            <IonTabButton tab="Search" href="/search">
               <IonIcon icon={search} />
               {/* <IonLabel>Search</IonLabel> */}
             </IonTabButton>

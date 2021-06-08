@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonIcon, IonLabel, IonRippleEffect } from "@ionic/react";
-import DarkModeSwitch from "../components/DarkModeToggler";
+import DarkModeToggler from "../components/DarkModeToggler";
 import { informationCircle } from "ionicons/icons";
 
 import { useHistory } from "react-router-dom";
@@ -9,13 +9,13 @@ const Settings: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="secondary">
           <IonTitle>Settings</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonList>
-          <DarkModeSwitch name="Settings page" />
+          <DarkModeToggler name="Settings page" />
           <IonItem onClick={() => history.push("/settings/about")}>
             <IonIcon slot="start" icon={informationCircle} />
             <IonLabel>About</IonLabel>

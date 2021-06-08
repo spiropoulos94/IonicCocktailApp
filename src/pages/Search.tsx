@@ -4,11 +4,11 @@ const Tab3: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="secondary">
           <IonTitle>Search</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen></IonContent>
+      <IonContent color="tertiary" fullscreen></IonContent>
     </IonPage>
   );
 };
