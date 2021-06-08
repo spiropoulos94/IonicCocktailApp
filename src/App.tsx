@@ -41,7 +41,7 @@ const App: React.FC = () => {
             <Route exact path="/Home">
               <Home />
             </Route>
-            <Route exact path="/about">
+            <Route exact path="/settings/about">
               <About />
             </Route>
             <Route path="/Search">
@@ -50,7 +50,7 @@ const App: React.FC = () => {
             <Route path="/ask-bartender">
               <AskBartender />
             </Route>
-            <Route path="/settings">
+            <Route exact path="/settings">
               <Settings />
             </Route>
             <Route exact path="/">

@@ -12,11 +12,11 @@ const AskBartender: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        {/* <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Ask the Bartender</IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
       </IonContent>
     </IonPage>
   );
