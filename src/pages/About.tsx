@@ -1,4 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonText, IonBackButton, IonButtons } from "@ionic/react";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonText,
+  IonBackButton,
+  IonButtons,
+} from "@ionic/react";
 import * as theme from "../theme";
 
 const About: React.FC = () => {
@@ -6,7 +15,7 @@ const About: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="secondary">
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
@@ -14,16 +23,27 @@ const About: React.FC = () => {
           <IonTitle>About</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding ion-text-center" fullscreen>
-        <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "center" }}>
+      <IonContent className="ion-padding ion-text-center">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            justifyContent: "center",
+          }}
+        >
           <IonText style={theme.FONTS.body2}>
             This is a web app made by{" "}
-            <a href="https://www.linkedin.com/in/nikos-spiropoulos-813167181/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/nikos-spiropoulos-813167181/"
+              target="_blank"
+            >
               a cocktail enthusiast
             </a>
             {"  "}
-            for drink lovers. You can use it to search for your desired drink and learn about it. You can even try making it! If you have any suggestions let me
-            know! Thanks!
+            for drink lovers. You can use it to search for your desired drink
+            and learn about it. You can even try making it! If you have any
+            suggestions let me know! Thanks!
           </IonText>
         </div>
         {/* <IonText style={theme.FONTS.body1}>

@@ -1,4 +1,15 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonItem,
+  IonLabel,
+  IonInput,
+} from "@ionic/react";
+
+import CocktailPreviewCard from "../../src/components/CocktailPreviewCart";
 
 const Tab3: React.FC = () => {
   return (
