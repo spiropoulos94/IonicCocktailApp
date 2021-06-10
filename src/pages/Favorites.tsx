@@ -8,20 +8,20 @@ import {
 } from "@ionic/react";
 import * as theme from "../theme";
 
-const AskBartender: React.FC = () => {
+const Favorites: React.FC = () => {
   const toggle = document.querySelector("#themeToggle");
   console.log({ toggle });
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar color="secondary">
-          <IonTitle>Ask the Bartender</IonTitle>
+          <IonTitle>Favorites</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent color="tertiary" fullscreen>
         {/* <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Ask the Bartender</IonTitle>
+            <IonTitle size="large">Favorites</IonTitle>
           </IonToolbar>
         </IonHeader> */}
       </IonContent>
@@ -29,4 +29,4 @@ const AskBartender: React.FC = () => {
   );
 };
 
-export default AskBartender;
+export default Favorites;

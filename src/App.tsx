@@ -1,10 +1,29 @@
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
+import {
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { settings, home, search, person, informationCircle } from "ionicons/icons";
+import {
+  settings,
+  home,
+  search,
+  person,
+  informationCircle,
+  heart,
+} from "ionicons/icons";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Search from "./pages/Search";
+import Favorites from "./pages/Favorites";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -52,6 +71,9 @@ const App: React.FC = () => {
             <Route path="/ask-bartender">
               <AskBartender />
             </Route>
+            <Route path="/favorites">
+              <Favorites />
+            </Route>
             <Route exact path="/settings">
               <Settings />
             </Route>
@@ -72,10 +94,10 @@ const App: React.FC = () => {
               <IonIcon icon={person} />
               {/* <IonLabel>Bartender</IonLabel> */}
             </IonTabButton>
-            {/* <IonTabButton tab="about" href="/about">
-              <IonIcon icon={informationCircle} />
-              {/* <IonLabel>Tab 2</IonLabel> */}
-            {/* </IonTabButton> */}
+            <IonTabButton tab="favorites" href="/favorites">
+              <IonIcon icon={heart} />
+              {/* <IonLabel>Tab 2</IonLabel>  */}
+            </IonTabButton>
             <IonTabButton tab="settings" href="/settings">
               <IonIcon icon={settings} />
               {/* <IonLabel>Bartender</IonLabel> */}
