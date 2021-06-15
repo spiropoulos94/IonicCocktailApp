@@ -1,5 +1,7 @@
 export const fetchCocktailsByName = async (name) => {
-  if (name == "") return;
+  if (name == "") {
+    return;
+  }
   let response = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
   );
