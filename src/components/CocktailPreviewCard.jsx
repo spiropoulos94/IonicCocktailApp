@@ -7,18 +7,23 @@ import {
   IonCardContent,
 } from "@ionic/react";
 
-const CocktailPreviewCart = () => {
+interface drink {}
+
+const CocktailPreviewCart = ({ drink }) => {
+  console.log(drink);
+
   return (
     <IonCard>
       <IonCardHeader>
-        <IonCardTitle>Card Title</IonCardTitle>
+        <IonCardTitle>{drink.strDrink}</IonCardTitle>
         <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
       </IonCardHeader>
 
       <IonCardContent>
-        Keep close to Nature's heart... and break clear away, once in awhile,
+        <img src={drink.strDrinkThumb} />
+        {/* Keep close to Nature's heart... and break clear away, once in awhile,
         and climb a mountain or spend a week in the woods. Wash your spirit
-        clean.
+        clean. */}
       </IonCardContent>
     </IonCard>
   );

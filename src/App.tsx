@@ -20,6 +20,15 @@ import {
   informationCircle,
   heart,
 } from "ionicons/icons";
+
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Search from "./pages/Search";
@@ -47,65 +56,68 @@ import "./theme/variables.css";
 // Imports
 import AskBartender from "./pages/AskBartender";
 import Settings from "./pages/Settings";
-
+//todo Continue query client setup!
+const queryClient = new QueryClient();
 const App: React.FC = () => {
   return (
-    <IonApp>
-      {/* <IonHeader>
+    <QueryClientProvider client={queryClient}>
+      <IonApp>
+        {/* <IonHeader>
         <IonToolbar>
           <IonTitle>Global header</IonTitle>
         </IonToolbar>
       </IonHeader> */}
-      <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/Home">
-              <Home />
-            </Route>
-            <Route exact path="/settings/about">
-              <About />
-            </Route>
-            <Route path="/Search">
-              <Search />
-            </Route>
-            <Route path="/ask-bartender">
-              <AskBartender />
-            </Route>
-            <Route path="/favorites">
-              <Favorites />
-            </Route>
-            <Route exact path="/settings">
-              <Settings />
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/Home" />
-            </Route>
-          </IonRouterOutlet>
-          <IonTabBar color="secondary" slot="bottom">
-            <IonTabButton tab="Home" href="/home">
-              <IonIcon icon={home} />
-              {/* <IonLabel>Tab 1</IonLabel> */}
-            </IonTabButton>
-            <IonTabButton tab="Search" href="/search">
-              <IonIcon icon={search} />
-              {/* <IonLabel>Search</IonLabel> */}
-            </IonTabButton>
-            <IonTabButton tab="ask-bartender" href="/ask-bartender">
-              <IonIcon icon={person} />
-              {/* <IonLabel>Bartender</IonLabel> */}
-            </IonTabButton>
-            <IonTabButton tab="favorites" href="/favorites">
-              <IonIcon icon={heart} />
-              {/* <IonLabel>Tab 2</IonLabel>  */}
-            </IonTabButton>
-            <IonTabButton tab="settings" href="/settings">
-              <IonIcon icon={settings} />
-              {/* <IonLabel>Bartender</IonLabel> */}
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
-      </IonReactRouter>
-    </IonApp>
+        <IonReactRouter>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route exact path="/Home">
+                <Home />
+              </Route>
+              <Route exact path="/settings/about">
+                <About />
+              </Route>
+              <Route path="/Search">
+                <Search />
+              </Route>
+              <Route path="/ask-bartender">
+                <AskBartender />
+              </Route>
+              <Route path="/favorites">
+                <Favorites />
+              </Route>
+              <Route exact path="/settings">
+                <Settings />
+              </Route>
+              <Route exact path="/">
+                <Redirect to="/Home" />
+              </Route>
+            </IonRouterOutlet>
+            <IonTabBar color="secondary" slot="bottom">
+              <IonTabButton tab="Home" href="/home">
+                <IonIcon icon={home} />
+                {/* <IonLabel>Tab 1</IonLabel> */}
+              </IonTabButton>
+              <IonTabButton tab="Search" href="/search">
+                <IonIcon icon={search} />
+                {/* <IonLabel>Search</IonLabel> */}
+              </IonTabButton>
+              <IonTabButton tab="ask-bartender" href="/ask-bartender">
+                <IonIcon icon={person} />
+                {/* <IonLabel>Bartender</IonLabel> */}
+              </IonTabButton>
+              <IonTabButton tab="favorites" href="/favorites">
+                <IonIcon icon={heart} />
+                {/* <IonLabel>Tab 2</IonLabel>  */}
+              </IonTabButton>
+              <IonTabButton tab="settings" href="/settings">
+                <IonIcon icon={settings} />
+                {/* <IonLabel>Bartender</IonLabel> */}
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </IonReactRouter>
+      </IonApp>
+    </QueryClientProvider>
   );
 };
 

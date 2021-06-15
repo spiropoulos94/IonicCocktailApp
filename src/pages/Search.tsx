@@ -1,36 +1,40 @@
 import React, { useState } from "react";
+import { useQuery } from "react-query";
 import {
   IonContent,
   IonHeader,
   IonPage,
   IonTitle,
   IonToolbar,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonText,
-  IonDatetime,
-  IonItemDivider,
+  IonLoading,
   IonSearchbar,
-  IonFooter,
-  IonButton,
-  useIonAlert,
 } from "@ionic/react";
 
-import CocktailPreviewCard from "../../src/components/CocktailPreviewCart";
+import CocktailPreviewCard from "../components/CocktailPreviewCard";
 import * as theme from "../theme";
+
+import { fetchCocktailsByName } from "../utils";
 
 const Tab3: React.FC = () => {
   const [searchText, setSearchText] = useState("");
-  const [shownMessage, setShownMessage] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  console.log({ theme });
+  const { isLoading, error, data, isFetching } = useQuery(
+    `drinks${searchQuery}`,
+    () => fetchCocktailsByName(searchQuery),
+    {
+      refetchOnWindowFocus: false,
+      // enabled: false, // turned off by default, manual refetch is needed
+    }
+  );
 
-  const handleKeyPress = (e: any) => {
-    if (e && e.key == "Enter") {
-      setShownMessage(searchText);
+  const handleKeyPress = async (e: any) => {
+    if (e.key == "Enter") {
+      setSearchQuery(searchText);
     }
   };
+
+  console.log(data);
 
   return (
     <IonPage>
@@ -40,6 +44,11 @@ const Tab3: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent color="tertiary" fullscreen>
+        <IonLoading
+          cssClass="my-custom-class"
+          isOpen={isFetching}
+          message={"Please wait..."}
+        />
         <div
           style={{
             // width: "100%",
@@ -58,7 +67,15 @@ const Tab3: React.FC = () => {
           ></IonSearchbar>
         </div>
 
-        <IonToolbar>Search Text: {shownMessage ?? "(none)"}</IonToolbar>
+        {/* <IonToolbar>Search Text: {searchQuery ?? "(none)"}</IonToolbar> */}
+        {data &&
+          data.map((item) => {
+            const cocktailCardProps = {
+              // make sure all required component's inputs/Props keys&types match
+              drink: item,
+            };
+            return <CocktailPreviewCard key={item.id} {...cocktailCardProps} />;
+          })}
       </IonContent>
     </IonPage>
   );
