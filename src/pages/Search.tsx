@@ -43,7 +43,10 @@ const Tab3: React.FC = () => {
           <IonTitle>Search</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent color="tertiary" fullscreen>
+      <IonContent
+        // color="tertiary"
+        fullscreen
+      >
         <IonLoading
           cssClass="my-custom-class"
           isOpen={isFetching}
@@ -53,7 +56,7 @@ const Tab3: React.FC = () => {
           style={{
             // width: "100%",
             paddingTop: theme.SIZES.padding * 2,
-            paddingBottom: theme.SIZES.padding * 2,
+            paddingBottom: theme.SIZES.padding * 1,
           }}
         >
           <IonSearchbar

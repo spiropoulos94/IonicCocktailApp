@@ -52,7 +52,7 @@ const CocktailPreviewCart = ({ drink }) => {
           and climb a mountain or spend a week in the woods. Wash your spirit
           clean. */}
           {ingredients.map((ingredient, index) => (
-            <IonChip backgroundColor="red" key={index}>
+            <IonChip outline="true" color="secondary" key={index}>
               <IonLabel style={{ color: "white" }}>{ingredient}</IonLabel>
             </IonChip>
           ))}
