@@ -20,7 +20,7 @@ const Tab1: React.FC = () => {
           <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader> */}
-      <IonContent fullscreen>
+      <IonContent scrollY={false} fullscreen>
         <div className={styles.pageContainer}>
           <div className={styles.main}>
             <IonText className={styles.mainText}>

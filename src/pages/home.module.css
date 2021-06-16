@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cocktailBackground.jpg") no-repeat center center / cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/cocktailBackground.jpg") no-repeat center center / cover;
 }
 
 .buttonContainer {
@@ -35,3 +36,10 @@
 /* ion-content {
   --background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cocktailBackground.jpg") no-repeat center center / cover;
 } */
+
+.darkenBackground {
+  background-repeat: "no-repeat";
+  background-size: "cover";
+  background-blend-mode: "darken";
+  background-color: rgba(0, 0, 0, 0.65);
+}
