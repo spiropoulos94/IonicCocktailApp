@@ -1,4 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonText, IonRouterLink } from "@ionic/react";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonText,
+  IonRouterLink,
+} from "@ionic/react";
 import * as theme from "../theme";
 import styles from "./home.module.css";
 
@@ -14,9 +23,11 @@ const Tab1: React.FC = () => {
       <IonContent fullscreen>
         <div className={styles.pageContainer}>
           <div className={styles.main}>
-            <IonText className={styles.mainText}>Welcome to your Next Drink App!</IonText>
+            <IonText className={styles.mainText}>
+              Welcome to your Next Drink App!
+            </IonText>
             <div className={styles.buttonContainer}>
-              <IonRouterLink href="/search">
+              <IonRouterLink routerLink="/search">
                 <IonButton color="primary">Get Started</IonButton>
               </IonRouterLink>
               <IonRouterLink>

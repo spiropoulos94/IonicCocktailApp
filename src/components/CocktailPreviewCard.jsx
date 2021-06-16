@@ -12,8 +12,6 @@ import {
 interface drink {}
 
 const CocktailPreviewCart = ({ drink }) => {
-  // const [ingredients, setIngredients] = useState([]);
-
   const ingredients = [];
 
   for (const property in drink) {
@@ -21,8 +19,6 @@ const CocktailPreviewCart = ({ drink }) => {
       ingredients.push(drink[property]);
     }
   }
-
-  console.log(ingredients);
 
   return (
     <IonCard>
