@@ -8,7 +8,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-shade: #2c2c58;
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
@@ -16,7 +16,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-secondary-rgb: 61, 194, 255;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-shade: #d19950;
   --ion-color-secondary-tint: #50c8ff;
 
   /** tertiary **/
@@ -232,4 +232,8 @@ body.dark {
 
 ion-toggle {
   --background-checked: var(--ion-color-secondary);
+}
+
+.search {
+  --background: red;
 }

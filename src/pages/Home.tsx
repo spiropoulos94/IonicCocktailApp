@@ -28,7 +28,7 @@ const Tab1: React.FC = () => {
             </IonText>
             <div className={styles.buttonContainer}>
               <IonRouterLink routerLink="/search">
-                <IonButton color="primary">Get Started</IonButton>
+                <IonButton>Get Started</IonButton>
               </IonRouterLink>
               <IonRouterLink>
                 <IonButton color="secondary">Show Features</IonButton>

@@ -53,6 +53,9 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
+// Import global css
+import "./theme/global.css";
+
 // Imports
 import AskBartender from "./pages/AskBartender";
 import Settings from "./pages/Settings";
