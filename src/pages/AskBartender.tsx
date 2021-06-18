@@ -18,7 +18,7 @@ const AskBartender: React.FC = () => {
           <IonTitle>Ask the Bartender</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="askBartenderPage" fullscreen>
+      <IonContent className="contentBgBlog" fullscreen>
         {/* <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Ask the Bartender</IonTitle>
