@@ -11,7 +11,8 @@ import {
 import * as theme from "../theme";
 import styles from "./home.module.css";
 
-const Tab1: React.FC = () => {
+const Tab1: React.FC = (props) => {
+  console.log({ props });
   console.log({ styles });
   return (
     <IonPage>

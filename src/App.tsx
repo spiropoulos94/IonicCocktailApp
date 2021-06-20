@@ -33,6 +33,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
+import DrinkPage from "./pages/Drink";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -73,24 +74,20 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              <Route exact path="/Home">
+              {/* <Route exact path="/Home">
                 <Home />
-              </Route>
-              <Route exact path="/settings/about">
-                <About />
-              </Route>
-              <Route path="/Search">
-                <Search />
-              </Route>
-              <Route path="/ask-bartender">
-                <AskBartender />
-              </Route>
-              <Route path="/favorites">
-                <Favorites />
-              </Route>
-              <Route exact path="/settings">
-                <Settings />
-              </Route>
+              </Route> */}
+              <Route path="/home" component={Home} />
+
+              <Route path="/settings/about" component={About} />
+
+              <Route path="/search" component={Search} />
+
+              <Route path="/search/drinks/:drink" component={DrinkPage} />
+              <Route path="/ask-barteder" component={AskBartender} />
+              <Route path="/favorites" component={Favorites} />
+              <Route exact path="/settings" component={Settings} />
+
               <Route exact path="/">
                 <Redirect to="/Home" />
               </Route>
