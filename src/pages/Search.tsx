@@ -15,7 +15,9 @@ import * as theme from "../theme";
 
 import { fetchCocktailsByName } from "../utils";
 
-const Tab3: React.FC = () => {
+const Tab3: React.FC = (props) => {
+  console.log({ props });
+
   const [searchText, setSearchText] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 

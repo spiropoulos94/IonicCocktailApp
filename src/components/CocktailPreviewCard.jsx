@@ -10,6 +10,8 @@ import {
   IonText,
   IonIcon,
   IonRippleEffect,
+  IonRouterLink,
+  IonButton,
 } from "@ionic/react";
 
 import { enterOutline } from "ionicons/icons";
@@ -28,6 +30,8 @@ const CocktailPreviewCart = ({ drink }) => {
   }
 
   console.log({ drink });
+
+  //TODO otan pataei to link kai se paei sthn drink page, prepei na kouvalaei mazi kai to {drink} object gia na mhn ksanakanei fetch
 
   return (
     <IonCard
@@ -59,16 +63,28 @@ const CocktailPreviewCart = ({ drink }) => {
             <IonLabel style={{ color: "white" }}>{ingredient}</IonLabel>
           </IonChip>
         ))}
-        <IonIcon
-          style={{
-            position: "absolute",
-            right: "7%",
-            top: "-15%",
-            fontSize: 30,
-            color: "white",
-          }}
-          icon={enterOutline}
-        ></IonIcon>
+        <IonRouterLink routerLink="/search">
+          <IonButton
+            // onClick={() => alert("clicked")}
+            style={{
+              position: "absolute",
+              right: "0%",
+              top: "-15%",
+              padding: 0,
+            }}
+            size="large"
+            fill="clear"
+            shape="round"
+            mode="ios"
+          >
+            <IonIcon
+              style={{
+                color: "white",
+              }}
+              icon={enterOutline}
+            />
+          </IonButton>
+        </IonRouterLink>
       </IonCardContent>
     </IonCard>
   );
