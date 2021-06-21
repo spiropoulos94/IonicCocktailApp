@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { gatherIngredients } from "../utils";
 import {
   IonButton,
   IonContent,
@@ -8,7 +9,7 @@ import {
   IonToolbar,
   IonBackButton,
   IonButtons,
-  IonSpinner,
+  IonText,
 } from "@ionic/react";
 
 import Spinner from "../components/Spinner";
@@ -32,9 +33,7 @@ const DrinkPage: React.FC = (props) => {
     }
   );
 
-  console.log({ data });
-
-  let ingredients = [];
+  let ingredients = gatherIngredients(data);
 
   return (
     <IonPage>

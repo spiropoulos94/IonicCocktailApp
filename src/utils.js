@@ -19,3 +19,33 @@ export const fetchCocktailsByID = async (id) => {
   let drink = drinks[0];
   return drink;
 };
+
+//import a drink and return ingredients array in key value pairs
+export const gatherIngredients = (drink) => {
+  let ingredientsAndMeasuresMap = {};
+  let ingredientPattern = "strIngredient";
+  let measurePattern = "strMeasure";
+
+  for (const property in drink) {
+    let propertyID = property.toString().slice(-1);
+
+    if (property.toString().includes(ingredientPattern)) {
+      let ingredient = drink[property];
+      let measure = drink[`${measurePattern}${propertyID}`];
+      if (ingredient) {
+        ingredientsAndMeasuresMap[ingredient] = measure;
+      }
+    }
+  }
+  let ingredientsArr = [];
+
+  for (const key in ingredientsAndMeasuresMap) {
+    let pair = {
+      ingredient: key,
+      measure: ingredientsAndMeasuresMap[key],
+    };
+    ingredientsArr.push(pair);
+  }
+
+  return ingredientsArr;
+};
