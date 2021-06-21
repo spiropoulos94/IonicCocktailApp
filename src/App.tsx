@@ -81,7 +81,7 @@ const App: React.FC = () => {
 
               <Route path="/settings/about" component={About} />
 
-              <Route path="/search" component={Search} />
+              <Route exact path="/search" component={Search} />
 
               <Route path="/search/:drink" component={DrinkPage} />
               <Route path="/ask-bartender" component={AskBartender} />

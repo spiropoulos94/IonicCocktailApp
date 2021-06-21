@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import {
   IonCard,
   IonCardHeader,
@@ -22,6 +23,8 @@ interface drink {}
 
 const CocktailPreviewCart = ({ drink }) => {
   const ingredients = [];
+
+  const history = useHistory();
 
   for (const property in drink) {
     if (property.toString().includes("strIngredient") && drink[property]) {
@@ -63,28 +66,31 @@ const CocktailPreviewCart = ({ drink }) => {
             <IonLabel style={{ color: "white" }}>{ingredient}</IonLabel>
           </IonChip>
         ))}
-        <IonRouterLink routerLink="/search">
-          <IonButton
-            // onClick={() => alert("clicked")}
+        <IonButton
+          onClick={() =>
+            history.push({
+              pathname: `/search/${drink.idDrink}`,
+              state: { drink },
+            })
+          }
+          style={{
+            position: "absolute",
+            right: "0%",
+            top: "-15%",
+            padding: 0,
+          }}
+          size="large"
+          fill="clear"
+          shape="round"
+          mode="ios"
+        >
+          <IonIcon
             style={{
-              position: "absolute",
-              right: "0%",
-              top: "-15%",
-              padding: 0,
+              color: "white",
             }}
-            size="large"
-            fill="clear"
-            shape="round"
-            mode="ios"
-          >
-            <IonIcon
-              style={{
-                color: "white",
-              }}
-              icon={enterOutline}
-            />
-          </IonButton>
-        </IonRouterLink>
+            icon={enterOutline}
+          />
+        </IonButton>
       </IonCardContent>
     </IonCard>
   );
