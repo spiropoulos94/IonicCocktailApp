@@ -17,17 +17,13 @@ import { useQuery } from "react-query";
 const DrinkPage: React.FC = (props) => {
   let { drink } = (props.location && props.location.state) || {};
 
-  const setLocationStateOnQuery = (drink) => {
-    console.log("setLocationStateToQuery runs");
-    return drink;
-  };
-
   //When this component first mounts, it contains the location.state.data from the search page.It utilises the useQuery hook
   //in order to cache them. (If it doesnt, the location state data will become null when changing to another page)
 
   const { isLoading, error, data, isFetching } = useQuery(
     `drink-${props.match.params.drink}`,
-    () => setLocationStateOnQuery(drink),
+    //useQuery returns the drink obj from the location.state, and caches it like it was fetched
+    () => drink,
     {
       refetchOnWindowFocus: false,
     }

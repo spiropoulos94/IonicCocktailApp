@@ -65,7 +65,7 @@ const CocktailPreviewCart = ({ drink }) => {
         <IonButton
           onClick={() =>
             history.push({
-              pathname: `/search/${drink.idDrink}`,
+              pathname: `/search/${drink.strDrink}`,
               state: { drink },
             })
           }
