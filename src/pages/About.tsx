@@ -11,7 +11,7 @@ import {
 import * as theme from "../theme";
 
 const About: React.FC = () => {
-  console.log({ theme });
+  // console.log({ theme });
   return (
     <IonPage>
       <IonHeader>

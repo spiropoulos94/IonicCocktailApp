@@ -10,7 +10,6 @@ import * as theme from "../theme";
 
 const Favorites: React.FC = () => {
   const toggle = document.querySelector("#themeToggle");
-  console.log({ toggle });
   return (
     <IonPage>
       <IonHeader>

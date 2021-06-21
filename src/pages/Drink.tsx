@@ -36,6 +36,7 @@ const DrinkPage: React.FC = (props) => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
+
           <IonTitle>{data && data.strDrink}</IonTitle>
         </IonToolbar>
       </IonHeader>
