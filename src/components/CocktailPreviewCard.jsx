@@ -32,10 +32,6 @@ const CocktailPreviewCart = ({ drink }) => {
     }
   }
 
-  console.log({ drink });
-
-  //TODO otan pataei to link kai se paei sthn drink page, prepei na kouvalaei mazi kai to {drink} object gia na mhn ksanakanei fetch
-
   return (
     <IonCard
       style={{

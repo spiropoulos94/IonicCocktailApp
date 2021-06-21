@@ -10,7 +10,6 @@ import * as theme from "../theme";
 
 const AskBartender: React.FC = () => {
   const toggle = document.querySelector("#themeToggle");
-  console.log({ toggle });
   return (
     <IonPage>
       <IonHeader>

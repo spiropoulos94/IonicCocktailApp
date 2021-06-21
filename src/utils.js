@@ -12,7 +12,7 @@ export const fetchCocktailsByName = async (name) => {
 
 export const fetchCocktailsByID = async (id) => {
   let response = await fetch(
-    `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
   );
   let dataArr = await response.json();
   let drinks = dataArr["drinks"];

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   IonButton,
   IonContent,
@@ -5,33 +6,49 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonBackButton,
+  IonButtons,
 } from "@ionic/react";
 
 import * as theme from "../theme";
-import { fetchCocktailsByID } from "../utils";
+// import { fetchCocktailsByID } from "../utils";
 import { useQuery } from "react-query";
 
 const DrinkPage: React.FC = (props) => {
-  const { drink } = (props.location && props.location.state) || {};
+  let { drink } = (props.location && props.location.state) || {};
+
+  const setLocationStateOnQuery = (drink) => {
+    console.log("setLocationStateToQuery runs");
+    return drink;
+  };
+
+  //When this component first mounts, it contains the location.state.data from the search page.It utilises the useQuery hook
+  //in order to cache them. (If it doesnt, the location state data will become null when changing to another page)
 
   const { isLoading, error, data, isFetching } = useQuery(
     `drink-${props.match.params.drink}`,
-    () => fetchCocktailsByID(props.match.params.drink)
+    () => setLocationStateOnQuery(drink),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar color="secondary">
-          <IonTitle>{drink && drink.strDrink}</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>{data && data.strDrink}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="contentBgBlog" fullscreen>
-        <IonHeader collapse="condense">
+        {/* <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">{drink && drink.strDrink}</IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
       </IonContent>
     </IonPage>
   );
