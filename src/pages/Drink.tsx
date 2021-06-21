@@ -8,7 +8,10 @@ import {
   IonToolbar,
   IonBackButton,
   IonButtons,
+  IonSpinner,
 } from "@ionic/react";
+
+import Spinner from "../components/Spinner";
 
 import * as theme from "../theme";
 // import { fetchCocktailsByID } from "../utils";
@@ -29,6 +32,8 @@ const DrinkPage: React.FC = (props) => {
     }
   );
 
+  console.log({ data });
+
   return (
     <IonPage>
       <IonHeader>
@@ -37,15 +42,22 @@ const DrinkPage: React.FC = (props) => {
             <IonBackButton />
           </IonButtons>
 
-          <IonTitle>{data && data.strDrink}</IonTitle>
+          <IonTitle>{data ? data.strDrink : "Cocktail Page"}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="contentBgBlog" fullscreen>
-        {/* <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{drink && drink.strDrink}</IonTitle>
-          </IonToolbar>
-        </IonHeader> */}
+        {data ? (
+          <>
+            {/* <IonHeader collapse="condense">
+              <IonToolbar>
+                <IonTitle size="large">{drink && drink.strDrink}</IonTitle>
+              </IonToolbar>
+            </IonHeader> */}
+            <img src={data && data.strDrinkThumb} />
+          </>
+        ) : (
+          <Spinner />
+        )}
       </IonContent>
     </IonPage>
   );
