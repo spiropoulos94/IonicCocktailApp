@@ -34,6 +34,8 @@ const DrinkPage: React.FC = (props) => {
 
   console.log({ data });
 
+  let ingredients = [];
+
   return (
     <IonPage>
       <IonHeader>
@@ -41,19 +43,22 @@ const DrinkPage: React.FC = (props) => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-
           <IonTitle>{data ? data.strDrink : "Cocktail Page"}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="contentBgBlog" fullscreen>
         {data ? (
           <>
-            {/* <IonHeader collapse="condense">
-              <IonToolbar>
+            <IonHeader collapse="condense">
+              <IonToolbar className="drinkPageToolbar">
                 <IonTitle size="large">{drink && drink.strDrink}</IonTitle>
               </IonToolbar>
-            </IonHeader> */}
-            <img src={data && data.strDrinkThumb} />
+            </IonHeader>
+
+            <img
+              style={{ padding: 20, borderRadius: "10%" }}
+              src={data && data.strDrinkThumb}
+            />
           </>
         ) : (
           <Spinner />
