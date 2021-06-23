@@ -22,6 +22,7 @@ export const fetchCocktailsByID = async (id) => {
 
 //import a drink and return ingredients array in key value pairs
 export const gatherIngredients = (drink) => {
+  console.log("gather ingredients runs");
   let ingredientsAndMeasuresMap = {};
   let ingredientPattern = "strIngredient";
   let measurePattern = "strMeasure";

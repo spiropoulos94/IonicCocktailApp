@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gatherIngredients } from "../utils";
 import {
   IonButton,
@@ -10,7 +10,23 @@ import {
   IonBackButton,
   IonButtons,
   IonText,
+  IonLabel,
+  IonItem,
+  IonList,
+  IonIcon,
+  IonCheckbox,
+  IonListHeader,
 } from "@ionic/react";
+
+import {
+  closeCircle,
+  home,
+  star,
+  navigate,
+  informationCircle,
+  checkmarkCircle,
+  shuffle,
+} from "ionicons/icons";
 
 import Spinner from "../components/Spinner";
 
@@ -20,9 +36,6 @@ import { useQuery } from "react-query";
 
 const DrinkPage: React.FC = (props) => {
   let { drink } = (props.location && props.location.state) || {};
-
-  //When this component first mounts, it contains the location.state.data from the search page.It utilises the useQuery hook
-  //in order to cache them. (If it doesnt, the location state data will become null when changing to another page)
 
   const { isLoading, error, data, isFetching } = useQuery(
     `drink-${props.match.params.drink}`,
@@ -34,6 +47,8 @@ const DrinkPage: React.FC = (props) => {
   );
 
   let ingredients = gatherIngredients(data);
+
+  //todo minimize the number this function runs
 
   return (
     <IonPage>
@@ -62,6 +77,34 @@ const DrinkPage: React.FC = (props) => {
         ) : (
           <Spinner />
         )}
+
+        {/* list kai headers */}
+
+        {/*-- List Headers in Lists --*/}
+        <IonList>
+          <IonListHeader lines="inset">
+            <IonLabel>Ingredients</IonLabel>
+          </IonListHeader>
+
+          {ingredients &&
+            ingredients.map((item) => {
+              return (
+                <IonItem
+                  // button
+                  onClick={() => {
+                    // alert("ckicl");
+                  }}
+                >
+                  {/*  */}
+                  <IonLabel>
+                    <h3>{item.ingredient}</h3>
+                    <p>{item.measure}</p>
+                  </IonLabel>
+                  <IonCheckbox checked={true} />
+                </IonItem>
+              );
+            })}
+        </IonList>
       </IonContent>
     </IonPage>
   );
