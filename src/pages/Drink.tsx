@@ -104,7 +104,15 @@ const DrinkPage: React.FC = (props) => {
   } else {
     return (
       <IonPage>
-        <IonContent className="contentBgBlog">
+        <IonHeader>
+          <IonToolbar color="secondary">
+            <IonButtons slot="start">
+              <IonBackButton />
+            </IonButtons>
+            <IonTitle>{drink.strDrink}</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="contentBgBlog spinner">
           <Spinner />
         </IonContent>
       </IonPage>
