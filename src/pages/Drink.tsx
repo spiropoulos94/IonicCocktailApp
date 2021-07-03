@@ -40,10 +40,8 @@ const DrinkPage: React.FC = (props) => {
 
   console.log({ data });
 
-  //TODO otan kanei klik sto button, pigaine kai enimerwse tou data to sygkekrimeno ingredient :)
-
-  const handleCheck = (item) => {
-    console.log("item checked is, ", item.ingredient);
+  const handleCheck = (checkedIngredient) => {
+    checkedIngredient.checked = !checkedIngredient.checked;
 
     queryClient.setQueryData(`drink-${props.match.params.drink}`, {
       ...data,
