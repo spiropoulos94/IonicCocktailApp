@@ -18,24 +18,14 @@ import {
   IonListHeader,
 } from "@ionic/react";
 
-// import {
-//   closeCircle,
-//   home,
-//   star,
-//   navigate,
-//   informationCircle,
-//   checkmarkCircle,
-//   shuffle,
-// } from "ionicons/icons";
-
 import Spinner from "../components/Spinner";
 
-// import * as theme from "../theme";
-// import { fetchCocktailsByID } from "../utils";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 const DrinkPage: React.FC = (props) => {
   let { drink } = (props.location && props.location.state) || {};
+
+  const queryClient = useQueryClient();
 
   const { isLoading, error, data, isFetching } = useQuery(
     `drink-${props.match.params.drink}`,
@@ -49,6 +39,16 @@ const DrinkPage: React.FC = (props) => {
   );
 
   console.log({ data });
+
+  //TODO otan kanei klik sto button, pigaine kai enimerwse tou data to sygkekrimeno ingredient :)
+
+  const handleCheck = (item) => {
+    console.log("item checked is, ", item.ingredient);
+
+    queryClient.setQueryData(`drink-${props.match.params.drink}`, {
+      ...data,
+    });
+  };
 
   if (data && data.drink) {
     const { drink, ingredients } = data;
@@ -88,22 +88,22 @@ const DrinkPage: React.FC = (props) => {
                 <IonLabel style={{ color: "white" }}>Ingredients</IonLabel>
               </IonListHeader>
 
-              {ingredients.map((item) => {
+              {ingredients.map((ingredient) => {
                 return (
                   <IonItem
                     className="ingredient-item"
                     // button
                     onClick={() => {
-                      // alert("ckicl");
+                      handleCheck(ingredient);
                     }}
                     style={{ background: "transparent" }}
                   >
                     {/*  */}
                     <IonLabel style={{ color: "white" }}>
-                      <h3>{item.ingredient}</h3>
-                      <p style={{ color: "white" }}>{item.measure}</p>
+                      <h3>{ingredient.ingredient}</h3>
+                      <p style={{ color: "white" }}>{ingredient.measure}</p>
                     </IonLabel>
-                    <IonCheckbox checked={true} />
+                    <IonCheckbox checked={ingredient.checked} />
                   </IonItem>
                 );
               })}

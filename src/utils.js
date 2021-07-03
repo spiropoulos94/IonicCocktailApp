@@ -44,6 +44,7 @@ export const gatherIngredients = (drink) => {
     let pair = {
       ingredient: key,
       measure: ingredientsAndMeasuresMap[key],
+      checked: false,
     };
     ingredientsArr.push(pair);
   }
