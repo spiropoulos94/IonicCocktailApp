@@ -18,19 +18,19 @@ import {
   IonListHeader,
 } from "@ionic/react";
 
-import {
-  closeCircle,
-  home,
-  star,
-  navigate,
-  informationCircle,
-  checkmarkCircle,
-  shuffle,
-} from "ionicons/icons";
+// import {
+//   closeCircle,
+//   home,
+//   star,
+//   navigate,
+//   informationCircle,
+//   checkmarkCircle,
+//   shuffle,
+// } from "ionicons/icons";
 
 import Spinner from "../components/Spinner";
 
-import * as theme from "../theme";
+// import * as theme from "../theme";
 // import { fetchCocktailsByID } from "../utils";
 import { useQuery } from "react-query";
 
@@ -63,10 +63,16 @@ const DrinkPage: React.FC = (props) => {
               <IonTitle>{drink.strDrink}</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <IonContent className="contentBgBlog" fullscreen>
+          <IonContent
+            className="contentBgBlog"
+            className="contentBgBlackGray2"
+            fullscreen
+          >
             <IonHeader collapse="condense">
               <IonToolbar className="drinkPageToolbar">
-                <IonTitle size="large">{drink.strDrink}</IonTitle>
+                <IonTitle style={{ textAlign: "center" }} size="large">
+                  {drink.strDrink}
+                </IonTitle>
               </IonToolbar>
             </IonHeader>
 
@@ -74,18 +80,20 @@ const DrinkPage: React.FC = (props) => {
               style={{ padding: 20, borderRadius: "10%" }}
               src={data.drink && data.drink.strDrinkThumb}
             />
-            <IonList>
+            <IonList style={{ background: "transparent" }}>
               <IonListHeader lines="inset">
-                <IonLabel>Ingredients</IonLabel>
+                <IonLabel style={{ color: "white" }}>Ingredients</IonLabel>
               </IonListHeader>
 
               {ingredients.map((item) => {
                 return (
                   <IonItem
+                    className="ingredient-item"
                     // button
                     onClick={() => {
                       // alert("ckicl");
                     }}
+                    style={{ background: "transparent" }}
                   >
                     {/*  */}
                     <IonLabel>

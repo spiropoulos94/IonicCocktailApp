@@ -17,7 +17,11 @@ const Favorites: React.FC = () => {
           <IonTitle>Favorites</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="contentBgBlog" fullscreen>
+      <IonContent
+        className="contentBgBlog"
+        className="contentBgBlackGray2"
+        fullscreen
+      >
         {/* <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Favorites</IonTitle>
