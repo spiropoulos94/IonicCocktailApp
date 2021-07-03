@@ -50,7 +50,7 @@ const DrinkPage: React.FC = (props) => {
 
   console.log({ data });
 
-  if (data) {
+  if (data && data.drink) {
     const { drink, ingredients } = data;
     return (
       <>
@@ -60,7 +60,7 @@ const DrinkPage: React.FC = (props) => {
               <IonButtons slot="start">
                 <IonBackButton />
               </IonButtons>
-              <IonTitle>{drink.strDrink}</IonTitle>
+              <IonTitle>{drink ? drink.strDrink : "Drink Title"}</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent
@@ -70,7 +70,7 @@ const DrinkPage: React.FC = (props) => {
           >
             <IonHeader collapse="condense">
               <IonToolbar className="drinkPageToolbar">
-                <IonTitle style={{ textAlign: "center" }} size="large">
+                <IonTitle style={{ textAlign: "start" }} size="large">
                   {drink.strDrink}
                 </IonTitle>
               </IonToolbar>
@@ -80,7 +80,10 @@ const DrinkPage: React.FC = (props) => {
               style={{ padding: 20, borderRadius: "10%" }}
               src={data.drink && data.drink.strDrinkThumb}
             />
-            <IonList style={{ background: "transparent" }}>
+            <IonList
+              className="ingredient-list"
+              style={{ background: "transparent" }}
+            >
               <IonListHeader lines="inset">
                 <IonLabel style={{ color: "white" }}>Ingredients</IonLabel>
               </IonListHeader>
@@ -96,9 +99,9 @@ const DrinkPage: React.FC = (props) => {
                     style={{ background: "transparent" }}
                   >
                     {/*  */}
-                    <IonLabel>
+                    <IonLabel style={{ color: "white" }}>
                       <h3>{item.ingredient}</h3>
-                      <p>{item.measure}</p>
+                      <p style={{ color: "white" }}>{item.measure}</p>
                     </IonLabel>
                     <IonCheckbox checked={true} />
                   </IonItem>

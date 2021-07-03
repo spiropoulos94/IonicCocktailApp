@@ -44,7 +44,6 @@ const Tab3: React.FC = (props) => {
       <IonContent
         // scrollY={false}
         // className="test"
-        className="contentBgBlog"
         className="contentBgBlackGray2"
         // color="tertiary"
         fullscreen
