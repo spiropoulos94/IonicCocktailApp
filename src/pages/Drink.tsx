@@ -36,9 +36,6 @@ const DrinkPage: React.FC = (props) => {
     //useQuery returns the drink obj from the location.state, and caches it like it was fetched
     () => {
       return drink;
-    },
-    {
-      refetchOnWindowFocus: false,
     }
   );
 
@@ -176,13 +173,27 @@ const DrinkPage: React.FC = (props) => {
                       <h3>{ingredient.ingredient}</h3>
                       <p style={{ color: "white" }}>{ingredient.measure}</p>
                     </IonLabel>
-                    <IonLabel style={{ color: "white" }}>
+                    <IonLabel slot="center" style={{ color: "white" }}>
                       {/* link gia google */}
+                      fafas
                     </IonLabel>
-                    <IonCheckbox checked={ingredient.checked} />
+                    <IonCheckbox slot="end" checked={ingredient.checked} />
                   </IonItem>
                 );
               })}
+            </IonList>
+            <IonList
+              className="transparent-list"
+              style={{ background: "transparent" }}
+            >
+              <IonListHeader lines="inset">
+                <IonLabel style={{ color: "white" }}>How to make :</IonLabel>
+              </IonListHeader>
+              <IonItem>
+                <IonText style={{ color: "white" }}>
+                  {data.strInstructions}
+                </IonText>
+              </IonItem>
             </IonList>
           </IonContent>
         </IonPage>
