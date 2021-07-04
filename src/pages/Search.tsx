@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import {
   IonContent,
@@ -13,7 +13,7 @@ import {
 import CocktailPreviewCard from "../components/CocktailPreviewCard";
 import * as theme from "../theme";
 
-import { fetchCocktailsByName } from "../utils";
+import { fetchCocktailsByName, gatherIngredients } from "../utils";
 
 const Tab3: React.FC = (props) => {
   const [searchText, setSearchText] = useState("");
@@ -33,6 +33,14 @@ const Tab3: React.FC = (props) => {
       setSearchQuery(searchText);
     }
   };
+
+  useEffect(() => {
+    if (data) {
+      data.map((drink) => {
+        drink.ingredients = gatherIngredients(drink);
+      });
+    }
+  }, [data]);
 
   return (
     <IonPage>

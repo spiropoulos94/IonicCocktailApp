@@ -35,14 +35,12 @@ const DrinkPage: React.FC = (props) => {
     `drink-${props.match.params.drink}`,
     //useQuery returns the drink obj from the location.state, and caches it like it was fetched
     () => {
-      return { drink, ingredients: gatherIngredients(drink) };
+      return drink;
     },
     {
       refetchOnWindowFocus: false,
     }
   );
-
-  console.log({ data });
 
   const [present] = useIonAlert();
 
@@ -55,7 +53,6 @@ const DrinkPage: React.FC = (props) => {
 
     if (data.ingredients.every((i) => i.checked)) {
       present({
-        cssClass: "my-css",
         header: "That's great!",
         message: "You 've got all you need! Check the recipe!",
         buttons: [{ text: "Ok", handler: (d) => console.log("ok pressed") }],
@@ -64,8 +61,10 @@ const DrinkPage: React.FC = (props) => {
     }
   };
 
-  if (data && data.drink) {
-    const { drink, ingredients } = data;
+  console.log({ data });
+
+  if (data) {
+    const drink = data;
     return (
       <>
         <IonPage>
@@ -84,7 +83,10 @@ const DrinkPage: React.FC = (props) => {
           >
             <IonHeader collapse="condense">
               <IonToolbar className="drinkPageToolbar">
-                <IonTitle style={{ textAlign: "start" }} size="large">
+                <IonTitle
+                  style={{ textAlign: "start", fontStyle: "italic" }}
+                  size="large"
+                >
                   {drink.strDrink}
                 </IonTitle>
               </IonToolbar>
@@ -100,8 +102,8 @@ const DrinkPage: React.FC = (props) => {
               src={data.drink && data.drink.strDrinkThumb}
             /> */}
 
-            <IonList lines="none" className="ingredient-list">
-              <IonItem style={{ color: "white" }} className="ingredient-item">
+            <IonList lines="none" className="transparent-list">
+              <IonItem style={{ color: "white" }} className="transparent-item">
                 {/* <IonLabel>Glass</IonLabel> */}
                 <IonIcon
                   style={{
@@ -147,22 +149,23 @@ const DrinkPage: React.FC = (props) => {
 
             <img
               style={{ padding: 20, borderRadius: "10%" }}
-              src={data.drink && data.drink.strDrinkThumb}
+              src={drink && drink.strDrinkThumb}
             />
 
             <IonList
-              className="ingredient-list"
+              className="transparent-list"
               style={{ background: "transparent" }}
             >
               <IonListHeader lines="inset">
                 <IonLabel style={{ color: "white" }}>Ingredients</IonLabel>
               </IonListHeader>
 
-              {ingredients.map((ingredient) => {
+              {drink.ingredients.map((ingredient) => {
                 return (
                   <IonItem
+                    lines="none"
                     detail={false}
-                    className="ingredient-item"
+                    className="transparent-item"
                     button
                     onClick={() => {
                       handleCheck(ingredient);
