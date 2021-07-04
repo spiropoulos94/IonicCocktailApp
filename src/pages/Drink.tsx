@@ -61,10 +61,9 @@ const DrinkPage: React.FC = (props) => {
     }
   };
 
-  console.log({ data });
-
   if (data) {
-    const drink = data;
+    console.log({ data }, { drink });
+    //data is used instead of drink, because drink returns undefined through page re-renders, while data is cached
     return (
       <>
         <IonPage>
@@ -73,7 +72,7 @@ const DrinkPage: React.FC = (props) => {
               <IonButtons slot="start">
                 <IonBackButton />
               </IonButtons>
-              <IonTitle>{drink ? drink.strDrink : "Drink Title"}</IonTitle>
+              <IonTitle>{data ? data.strDrink : "Drink Title"}</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent
@@ -87,7 +86,7 @@ const DrinkPage: React.FC = (props) => {
                   style={{ textAlign: "start", fontStyle: "italic" }}
                   size="large"
                 >
-                  {drink.strDrink}
+                  {data.strDrink}
                 </IonTitle>
               </IonToolbar>
             </IonHeader>
@@ -111,9 +110,9 @@ const DrinkPage: React.FC = (props) => {
                   }}
                   icon={wineOutline}
                 />
-                <IonLabel>{drink.strGlass}</IonLabel>
+                <IonLabel>{data.strGlass}</IonLabel>
               </IonItem>
-              {drink.strIBA && (
+              {data.strIBA && (
                 <IonItem style={{ color: "white" }}>
                   <IonIcon
                     style={{
@@ -121,10 +120,10 @@ const DrinkPage: React.FC = (props) => {
                     }}
                     icon={star}
                   />
-                  <IonLabel>{drink.strIBA}</IonLabel>
+                  <IonLabel>{data.strIBA}</IonLabel>
                 </IonItem>
               )}
-              {drink.strAlcoholic === "Alcoholic" ? (
+              {data.strAlcoholic === "Alcoholic" ? (
                 <IonItem style={{ color: "white" }}>
                   <IonIcon
                     style={{
@@ -132,7 +131,7 @@ const DrinkPage: React.FC = (props) => {
                     }}
                     icon={play}
                   />
-                  <IonLabel>{drink.strAlcoholic}</IonLabel>
+                  <IonLabel>{data.strAlcoholic}</IonLabel>
                 </IonItem>
               ) : (
                 <IonItem style={{ color: "white" }}>
@@ -142,14 +141,14 @@ const DrinkPage: React.FC = (props) => {
                     }}
                     icon={pause}
                   />
-                  <IonLabel>{drink.strAlcoholic}</IonLabel>
+                  <IonLabel>{data.strAlcoholic}</IonLabel>
                 </IonItem>
               )}
             </IonList>
 
             <img
               style={{ padding: 20, borderRadius: "10%" }}
-              src={drink && drink.strDrinkThumb}
+              src={data && data.strDrinkThumb}
             />
 
             <IonList
@@ -160,7 +159,7 @@ const DrinkPage: React.FC = (props) => {
                 <IonLabel style={{ color: "white" }}>Ingredients</IonLabel>
               </IonListHeader>
 
-              {drink.ingredients.map((ingredient) => {
+              {data.ingredients.map((ingredient) => {
                 return (
                   <IonItem
                     lines="none"
@@ -197,11 +196,12 @@ const DrinkPage: React.FC = (props) => {
             <IonButtons slot="start">
               <IonBackButton />
             </IonButtons>
-            <IonTitle>{drink.strDrink}</IonTitle>
+            <IonTitle>{data && data.strDrink}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="contentBgBlog spinner">
+        <IonContent className="contentBgBlackGray2 spinner">
           <Spinner />
+          {/* <p>No Drink found, please return to search page</p> */}
         </IonContent>
       </IonPage>
     );
