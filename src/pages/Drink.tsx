@@ -189,7 +189,7 @@ const DrinkPage: React.FC = (props) => {
               <IonListHeader lines="inset">
                 <IonLabel style={{ color: "white" }}>How to make :</IonLabel>
               </IonListHeader>
-              <IonItem>
+              <IonItem lines="none">
                 <IonText style={{ color: "white" }}>
                   {data.strInstructions}
                 </IonText>
@@ -207,7 +207,7 @@ const DrinkPage: React.FC = (props) => {
             <IonButtons slot="start">
               <IonBackButton />
             </IonButtons>
-            <IonTitle>{data && data.strDrink}</IonTitle>
+            <IonTitle>No drink found</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent className="contentBgBlackGray2 spinner">
