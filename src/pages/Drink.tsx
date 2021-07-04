@@ -10,13 +10,17 @@ import {
   IonBackButton,
   IonButtons,
   IonText,
+  IonImg,
   IonLabel,
   IonItem,
   IonList,
   IonIcon,
   IonCheckbox,
   IonListHeader,
+  useIonAlert,
 } from "@ionic/react";
+
+import { star, wineOutline, play, pause } from "ionicons/icons";
 
 import Spinner from "../components/Spinner";
 
@@ -40,12 +44,24 @@ const DrinkPage: React.FC = (props) => {
 
   console.log({ data });
 
+  const [present] = useIonAlert();
+
   const handleCheck = (checkedIngredient) => {
     checkedIngredient.checked = !checkedIngredient.checked;
 
     queryClient.setQueryData(`drink-${props.match.params.drink}`, {
       ...data,
     });
+
+    if (data.ingredients.every((i) => i.checked)) {
+      present({
+        cssClass: "my-css",
+        header: "That's great!",
+        message: "You 've got all you need! Check the recipe!",
+        buttons: [{ text: "Ok", handler: (d) => console.log("ok pressed") }],
+        onDidDismiss: (e) => console.log("did dismiss"),
+      });
+    }
   };
 
   if (data && data.drink) {
@@ -74,10 +90,66 @@ const DrinkPage: React.FC = (props) => {
               </IonToolbar>
             </IonHeader>
 
+            {/* <img
+              style={{ padding: 20, borderRadius: "10%" }}
+              src={data.drink && data.drink.strDrinkThumb}
+            /> */}
+
+            {/* <IonImg
+              style={{ padding: 20, borderRadius: "10%" }}
+              src={data.drink && data.drink.strDrinkThumb}
+            /> */}
+
+            <IonList lines="none" className="ingredient-list">
+              <IonItem style={{ color: "white" }} className="ingredient-item">
+                {/* <IonLabel>Glass</IonLabel> */}
+                <IonIcon
+                  style={{
+                    color: "white",
+                  }}
+                  icon={wineOutline}
+                />
+                <IonLabel>{drink.strGlass}</IonLabel>
+              </IonItem>
+              {drink.strIBA && (
+                <IonItem style={{ color: "white" }}>
+                  <IonIcon
+                    style={{
+                      color: "white",
+                    }}
+                    icon={star}
+                  />
+                  <IonLabel>{drink.strIBA}</IonLabel>
+                </IonItem>
+              )}
+              {drink.strAlcoholic === "Alcoholic" ? (
+                <IonItem style={{ color: "white" }}>
+                  <IonIcon
+                    style={{
+                      color: "white",
+                    }}
+                    icon={play}
+                  />
+                  <IonLabel>{drink.strAlcoholic}</IonLabel>
+                </IonItem>
+              ) : (
+                <IonItem style={{ color: "white" }}>
+                  <IonIcon
+                    style={{
+                      color: "white",
+                    }}
+                    icon={pause}
+                  />
+                  <IonLabel>{drink.strAlcoholic}</IonLabel>
+                </IonItem>
+              )}
+            </IonList>
+
             <img
               style={{ padding: 20, borderRadius: "10%" }}
               src={data.drink && data.drink.strDrinkThumb}
             />
+
             <IonList
               className="ingredient-list"
               style={{ background: "transparent" }}
@@ -89,8 +161,9 @@ const DrinkPage: React.FC = (props) => {
               {ingredients.map((ingredient) => {
                 return (
                   <IonItem
+                    detail={false}
                     className="ingredient-item"
-                    // button
+                    button
                     onClick={() => {
                       handleCheck(ingredient);
                     }}
@@ -100,6 +173,9 @@ const DrinkPage: React.FC = (props) => {
                     <IonLabel style={{ color: "white" }}>
                       <h3>{ingredient.ingredient}</h3>
                       <p style={{ color: "white" }}>{ingredient.measure}</p>
+                    </IonLabel>
+                    <IonLabel style={{ color: "white" }}>
+                      {/* link gia google */}
                     </IonLabel>
                     <IonCheckbox checked={ingredient.checked} />
                   </IonItem>
