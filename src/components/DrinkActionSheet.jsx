@@ -11,10 +11,12 @@ import {
   constructOutline,
 } from "ionicons/icons";
 
-export const DrinkActionSheet = ({ status, setStatus }) => {
-  console.log({ status });
+export const DrinkActionSheet = ({ status, setStatus, drink }) => {
+  //tsekare poio drink tou exei perasei kathe fora gia na mporei na to kanei favorite
+  console.log({ status }, { drink });
   return (
     <IonActionSheet
+      backdropDismiss={false}
       isOpen={status}
       onDidDismiss={() => setStatus(false)}
       cssClass="my-custom-class"

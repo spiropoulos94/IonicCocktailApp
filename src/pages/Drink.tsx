@@ -216,6 +216,7 @@ const DrinkPage: React.FC = (props) => {
             <DrinkActionSheet
               status={actionSheetStatus}
               setStatus={setActionsSheetStatus}
+              drink={data}
             />
           </IonContent>
         </IonPage>
