@@ -29,11 +29,14 @@ import {
 } from "ionicons/icons";
 
 import Spinner from "../components/Spinner";
+import { DrinkActionSheet } from "../components/DrinkActionSheet";
 
 import { useQuery, useQueryClient } from "react-query";
 
 const DrinkPage: React.FC = (props) => {
   let { drink } = (props.location && props.location.state) || {};
+
+  const [actionSheetStatus, setActionsSheetStatus] = useState(false);
 
   const queryClient = useQueryClient();
 
@@ -76,6 +79,7 @@ const DrinkPage: React.FC = (props) => {
                 <IonBackButton />
               </IonButtons>
               <IonIcon
+                onClick={() => setActionsSheetStatus(true)}
                 style={{ paddingRight: "10px" }}
                 size="large"
                 icon={ellipsisVerticalCircleOutline}
@@ -209,6 +213,10 @@ const DrinkPage: React.FC = (props) => {
                 </IonText>
               </IonItem>
             </IonList>
+            <DrinkActionSheet
+              status={actionSheetStatus}
+              setStatus={setActionsSheetStatus}
+            />
           </IonContent>
         </IonPage>
       </>
