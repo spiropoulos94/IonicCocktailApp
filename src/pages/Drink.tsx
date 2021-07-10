@@ -203,12 +203,12 @@ const DrinkPage: React.FC = (props) => {
     return (
       <IonPage>
         <IonHeader>
-          <IonToolbar color="secondary">
-            <IonButtons slot="start">
+          {/* <IonToolbar color="secondary"> */}
+          {/* <IonButtons slot="start">
               <IonBackButton />
             </IonButtons>
             <IonTitle>No drink found</IonTitle>
-          </IonToolbar>
+          </IonToolbar> */}
         </IonHeader>
         <IonContent className="contentBgBlackGray2 spinner">
           <Spinner />

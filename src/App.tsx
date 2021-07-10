@@ -19,6 +19,7 @@ import {
   person,
   informationCircle,
   heart,
+  chatbubbles,
 } from "ionicons/icons";
 
 import {
@@ -102,7 +103,7 @@ const App: React.FC = () => {
                 {/* <IonLabel>Search</IonLabel> */}
               </IonTabButton>
               <IonTabButton tab="ask-bartender" href="/ask-bartender">
-                <IonIcon icon={person} />
+                <IonIcon icon={chatbubbles} />
                 {/* <IonLabel>Bartender</IonLabel> */}
               </IonTabButton>
               <IonTabButton tab="favorites" href="/favorites">
