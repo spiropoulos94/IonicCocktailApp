@@ -11,6 +11,8 @@ import {
   constructOutline,
 } from "ionicons/icons";
 
+import { QueryClient } from "react-query";
+
 export const DrinkActionSheet = ({ status, setStatus, drink }) => {
   //tsekare poio drink tou exei perasei kathe fora gia na mporei na to kanei favorite
   console.log({ status }, { drink });
@@ -33,6 +35,7 @@ export const DrinkActionSheet = ({ status, setStatus, drink }) => {
           text: "Favorite",
           icon: heart,
           handler: () => {
+            QueryClient.setQueryData("favorites", ["apple", "banana"]);
             console.log("Favorite clicked");
           },
         },

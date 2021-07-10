@@ -6,10 +6,15 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { useQuery } from "react-query";
 import * as theme from "../theme";
 
 const Favorites: React.FC = () => {
-  const toggle = document.querySelector("#themeToggle");
+  //todo add auth and favorites
+  const { data } = useQuery("favorites", []);
+
+  console.log("data mesa sta favorites", { data });
+
   return (
     <IonPage>
       <IonHeader>
