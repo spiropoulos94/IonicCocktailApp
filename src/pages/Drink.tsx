@@ -20,7 +20,13 @@ import {
   useIonAlert,
 } from "@ionic/react";
 
-import { star, wineOutline, play, pause } from "ionicons/icons";
+import {
+  star,
+  wineOutline,
+  play,
+  pause,
+  ellipsisVerticalCircleOutline,
+} from "ionicons/icons";
 
 import Spinner from "../components/Spinner";
 
@@ -69,6 +75,14 @@ const DrinkPage: React.FC = (props) => {
               <IonButtons slot="start">
                 <IonBackButton />
               </IonButtons>
+              <IonIcon
+                style={{ paddingRight: "10px" }}
+                size="large"
+                icon={ellipsisVerticalCircleOutline}
+                slot="end"
+              >
+                ellipsisVerticalCircleOutline here
+              </IonIcon>
               <IonTitle>{data ? data.strDrink : "Drink Title"}</IonTitle>
             </IonToolbar>
           </IonHeader>
