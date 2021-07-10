@@ -25,7 +25,7 @@
   --background: red;
 }
 
-ion-toolbar.drinkPageToolbar {
+ion-toolbar.transparentDrinkPageToolbar {
   --background: transparent;
   color: white;
   --border-width: 0;

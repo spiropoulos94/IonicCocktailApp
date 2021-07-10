@@ -96,7 +96,7 @@ const DrinkPage: React.FC = (props) => {
             fullscreen
           >
             <IonHeader collapse="condense">
-              <IonToolbar className="drinkPageToolbar">
+              <IonToolbar className="transparentDrinkPageToolbar">
                 <IonTitle
                   style={{ textAlign: "start", fontStyle: "italic" }}
                   size="large"
