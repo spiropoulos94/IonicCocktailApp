@@ -34,9 +34,12 @@ import DrinkPage from "../pages/Drink";
 import AskBartender from "../pages/AskBartender";
 import Settings from "../pages/Settings";
 
+import barmanSvg from "../assets/customIcons/bartender.svg";
+
 //this component is a child of app in order to use useQuery inside
 
 const CustomIonApp = () => {
+  console.log({ barmanSvg });
   const { data: favorites } = useQuery(
     "favorites",
     () => {
@@ -87,7 +90,8 @@ const CustomIonApp = () => {
               {/* <IonLabel>Search</IonLabel> */}
             </IonTabButton>
             <IonTabButton tab="ask-bartender" href="/ask-bartender">
-              <IonIcon icon={chatbubbles} />
+              {/* <IonIcon icon={chatbubbles} /> */}
+              <IonIcon src={barmanSvg} font-size="48px" />
               {/* <IonLabel>Bartender</IonLabel> */}
             </IonTabButton>
             {favorites.length && (
