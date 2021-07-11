@@ -10,6 +10,7 @@ import { useQuery } from "react-query";
 import * as theme from "../theme";
 
 import { useQueryClient } from "react-query";
+import CocktailPreviewCard from "../components/CocktailPreviewCard";
 
 const Favorites: React.FC = () => {
   //todo add auth and favorites
@@ -47,6 +48,8 @@ const Favorites: React.FC = () => {
             <IonTitle size="large">Favorites</IonTitle>
           </IonToolbar>
         </IonHeader>
+        {favorites &&
+          favorites.map((drink) => <CocktailPreviewCard drink={drink} />)}
       </IonContent>
     </IonPage>
   );
