@@ -9,11 +9,26 @@ import {
 import { useQuery } from "react-query";
 import * as theme from "../theme";
 
+import { useQueryClient } from "react-query";
+
 const Favorites: React.FC = () => {
   //todo add auth and favorites
-  const { data } = useQuery("favorites", []);
 
-  console.log("data mesa sta favorites", { data });
+  const queryClient = useQueryClient();
+
+  const { data } = useQuery(
+    "favorites",
+    () => {
+      return [1, 2, 3, 4];
+    },
+    {
+      refetchOnWindowFocus: false,
+      enabled: false,
+      initialData: [],
+    }
+  );
+
+  console.log({ data });
 
   return (
     <IonPage>
@@ -32,6 +47,16 @@ const Favorites: React.FC = () => {
             <IonTitle size="large">Favorites</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <IonButton
+          onClick={() =>
+            queryClient.setQueryData("favorites", (oldData) => [
+              ...oldData,
+              "nikos",
+            ])
+          }
+        >
+          Add query Data{" "}
+        </IonButton>
       </IonContent>
     </IonPage>
   );

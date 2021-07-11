@@ -21,7 +21,7 @@ interface drink {}
 
 //  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cocktailBackground.jpg") no-repeat centerOutline centerOutline / cover;
 
-const CocktailPreviewCart = ({ drink }) => {
+const CocktailPreviewCard = ({ drink }) => {
   const ingredients = [];
 
   const history = useHistory();
@@ -92,4 +92,4 @@ const CocktailPreviewCart = ({ drink }) => {
   );
 };
 
-export default CocktailPreviewCart;
+export default CocktailPreviewCard;

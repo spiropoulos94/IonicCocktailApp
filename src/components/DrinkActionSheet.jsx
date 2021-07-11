@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { IonActionSheet, IonContent, IonButton } from "@ionic/react";
+import { useQuery, useQueryClient } from "react-query";
 import {
   trash,
   share,
@@ -11,11 +12,13 @@ import {
   constructOutline,
 } from "ionicons/icons";
 
-import { QueryClient } from "react-query";
-
 export const DrinkActionSheet = ({ status, setStatus, drink }) => {
   //tsekare poio drink tou exei perasei kathe fora gia na mporei na to kanei favorite
   console.log({ status }, { drink });
+  const queryClient = useQueryClient();
+
+  const updateFavorites = (drink) => {};
+
   return (
     <IonActionSheet
       backdropDismiss={false}
@@ -35,7 +38,7 @@ export const DrinkActionSheet = ({ status, setStatus, drink }) => {
           text: "Favorite",
           icon: heart,
           handler: () => {
-            QueryClient.setQueryData("favorites", ["apple", "banana"]);
+            queryClient.setQueryData("favorites", drink);
             console.log("Favorite clicked");
           },
         },
