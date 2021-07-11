@@ -16,10 +16,10 @@ const Favorites: React.FC = () => {
 
   const queryClient = useQueryClient();
 
-  const { data } = useQuery(
+  const { data: favorites } = useQuery(
     "favorites",
     () => {
-      return [1, 2, 3, 4];
+      return [];
     },
     {
       refetchOnWindowFocus: false,
@@ -28,7 +28,7 @@ const Favorites: React.FC = () => {
     }
   );
 
-  console.log({ data });
+  console.log({ favorites });
 
   return (
     <IonPage>

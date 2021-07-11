@@ -37,10 +37,11 @@ export const DrinkActionSheet = ({ status, setStatus, drink }) => {
         {
           text: "Favorite",
           icon: heart,
-          handler: () => {
-            queryClient.setQueryData("favorites", drink);
-            console.log("Favorite clicked");
-          },
+          handler: () =>
+            queryClient.setQueryData("favorites", (oldData) => [
+              ...oldData,
+              drink,
+            ]),
         },
         {
           text: "Cancel",
