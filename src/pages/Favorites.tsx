@@ -29,8 +29,6 @@ const Favorites: React.FC = () => {
     }
   );
 
-  console.log({ favorites });
-
   return (
     <IonPage>
       <IonHeader>
