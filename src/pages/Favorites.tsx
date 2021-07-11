@@ -47,16 +47,6 @@ const Favorites: React.FC = () => {
             <IonTitle size="large">Favorites</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonButton
-          onClick={() =>
-            queryClient.setQueryData("favorites", (oldData) => [
-              ...oldData,
-              "nikos",
-            ])
-          }
-        >
-          Add query Data{" "}
-        </IonButton>
       </IonContent>
     </IonPage>
   );
