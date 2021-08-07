@@ -25,13 +25,14 @@ const AskBartender: React.FC = () => {
           <IonTitle>Ask the Bartender</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="contentBgBlackGray2" fullscreen>
+      <IonContent scrollY={false} className="contentBgBlackGray2" fullscreen>
         <IonGrid style={{ height: "100%", display: "flex" }}>
           <IonRow style={{ margin: "auto" }}>
             <IonCol
               style={{
                 display: "flex",
                 flexDirection: "column",
+                padding: "20px",
               }}
             >
               <IonText style={{ fontSize: theme.SIZES.h1, color: "white" }}>
