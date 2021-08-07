@@ -16,8 +16,7 @@ import * as theme from "../theme";
 import styles from "../pages/askbartender.module.css";
 
 const AskBartender: React.FC = () => {
-  console.log({ styles });
-
+  //
   return (
     <IonPage>
       <IonHeader>
