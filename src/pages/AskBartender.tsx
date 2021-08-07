@@ -8,9 +8,10 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import * as theme from "../theme";
+import styles from "../pages/askbartender.module.css";
 
 const AskBartender: React.FC = () => {
-  console.log({ theme });
+  console.log({ styles });
 
   return (
     <IonPage>
@@ -25,24 +26,26 @@ const AskBartender: React.FC = () => {
             <IonTitle size="large">Ask the Bartender</IonTitle>
           </IonToolbar>
         </IonHeader> */}
-        <div style={{ padding: "30px 20px" }}>
-          <IonText style={{ fontSize: theme.SIZES.h1, color: "white" }}>
-            Out of ideas?
-          </IonText>
-          <br />
-          <br />
-          <IonText
-            style={{
-              fontSize: theme.SIZES.h4,
-              color: "white",
-              marginTop: "100px",
-            }}
-          >
-            Try answering some simple questions and find that perfect match!
-          </IonText>
-          <IonButton style={{ marginTop: "25px" }} expand="block">
-            Let's Go !
-          </IonButton>
+        <div className={styles.pageContentContainer}>
+          <div className={styles.prompt} style={{ padding: "30px 20px" }}>
+            <IonText style={{ fontSize: theme.SIZES.h1, color: "white" }}>
+              Out of ideas?
+            </IonText>
+            <br />
+            <br />
+            <IonText
+              style={{
+                fontSize: theme.SIZES.h4,
+                color: "white",
+                marginTop: "100px",
+              }}
+            >
+              Try answering some simple questions and find that perfect match!
+            </IonText>
+            <IonButton style={{ marginTop: "25px" }} expand="block">
+              Let's Go !
+            </IonButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>

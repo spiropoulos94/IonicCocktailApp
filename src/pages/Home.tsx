@@ -8,7 +8,6 @@ import {
   IonText,
   IonRouterLink,
 } from "@ionic/react";
-import * as theme from "../theme";
 import styles from "./home.module.css";
 
 const Tab1: React.FC = (props) => {

@@ -1,0 +1,11 @@
+.prompt {
+  /* background: red; */
+}
+
+.pageContentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: green; */
+  height: 100%;
+}
